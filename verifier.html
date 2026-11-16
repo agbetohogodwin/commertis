@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vérification d'un dossier de crédit CommerTIS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main style="max-width:640px;margin:48px auto;padding:0 16px;font-family:Arial,sans-serif">
+  <h1 style="font-size:22px">Vérification d'un dossier de crédit</h1>
+  <p id="msg">Ouverture de la page de vérification…</p>
+</main>
+<script>
+// Adresse stable imprimée dans le QR code des dossiers. Elle renvoie vers le service de vérification du moment
+// (service.json), même si ce service change d'adresse un jour.
+(function () {
+  var code = new URLSearchParams(location.search).get('c') || '';
+  var msg = document.getElementById('msg');
+  if (!/^[A-Za-z0-9-]{4,40}$/.test(code)) { msg.textContent = 'Code de vérification absent ou invalide.'; return; }
+  fetch('service.json', {cache: 'no-store'}).then(function (r) { return r.json(); }).then(function (s) {
+    var u = String(s.activation_url || '');
+    if (u.indexOf('https://script.google.com/macros/s/') !== 0) throw new Error('adresse');
+    location.replace(u + '?verify=' + encodeURIComponent(code));
+  }).catch(function () {
+    msg.textContent = 'Service de vérification momentanément indisponible. Réessayez plus tard. Code : ' + code;
+  });
+})();
+</script>
+</body>
+</html>
