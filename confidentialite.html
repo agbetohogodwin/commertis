@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Règles de confidentialité : CommerTIS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <nav><a href="index.html">Accueil</a><a href="confidentialite.html">Règles de confidentialité</a></nav>
+  <h1 style="margin-top:32px;font-size:34px">Règles de confidentialité</h1>
+  <p class="muted">CommerTIS (logiciel Windows et application Android). Dernière mise à jour : 16 novembre 2026.</p>
+
+  <h2>1. Où sont les données</h2>
+  <p>Les données de la boutique (ventes, produits, stock, clients, dépenses, comptes) sont enregistrées sur l'ordinateur de la
+  boutique, dans une base de données locale. Elles appartiennent au commerçant. L'éditeur de CommerTIS n'y a pas accès.</p>
+
+  <h2>2. Application mobile et envoi en ligne (facultatif)</h2>
+  <p>Si le commerçant active l'application mobile, le logiciel envoie un résumé de son activité (chiffres du jour et du mois,
+  stock en alerte, crédits clients, alertes). Ce résumé est chiffré sur l'ordinateur de la boutique (AES-256-GCM) avant l'envoi.
+  La clé de déchiffrement reste sur l'ordinateur de la boutique et sur les téléphones jumelés par QR code. Ni l'éditeur, ni
+  Google, ni l'hébergeur ne peuvent lire ce contenu.</p>
+  <p>Le commerçant choisit la destination :</p>
+  <ul>
+    <li><strong>Service CommerTIS</strong> : hébergement Google Firebase (Firestore), données chiffrées comme indiqué ci-dessus.</li>
+    <li><strong>Google Drive du commerçant</strong> : les fichiers chiffrés sont déposés dans le compte Google du commerçant.</li>
+  </ul>
+  <p>Par défaut, les noms et téléphones des clients ne sont pas envoyés : ils sont remplacés par « Client n° … ». Le commerçant
+  peut changer ce réglage.</p>
+
+  <h2>3. Utilisation de Google Drive</h2>
+  <p>CommerTIS demande uniquement l'autorisation <code>https://www.googleapis.com/auth/drive.file</code>. Elle permet de créer
+  et de lire les seuls fichiers créés par CommerTIS (dossier « CommerTIS »). CommerTIS ne voit, ne lit, ne modifie et ne
+  supprime aucun autre fichier du compte Google.</p>
+  <p>Les données obtenues par les API Google servent uniquement à faire fonctionner l'application mobile du commerçant. Elles ne
+  sont ni vendues, ni transmises à des tiers, ni utilisées pour de la publicité ou pour entraîner des modèles d'intelligence
+  artificielle. L'utilisation et le transfert vers toute autre application des informations reçues des API Google respectent les
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Règles concernant les données des utilisateurs des
+  services d'API Google</a>, y compris les exigences d'utilisation limitée.</p>
+  <p>Le commerçant peut retirer l'accès à tout moment : dans le logiciel (Paramètres > Application mobile > Déconnecter) ou dans
+  son compte Google (<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).</p>
+
+  <h2>4. Téléphones de la salle</h2>
+  <p>Les téléphones des serveurs et de la cuisine communiquent directement avec l'ordinateur de la boutique, sur le Wi-Fi de
+  l'établissement. Les échanges sont chiffrés. Aucune donnée de commande ne passe par Internet.</p>
+
+  <h2>5. Licence et activation</h2>
+  <p>Pour activer ou renouveler un abonnement, le logiciel envoie le code d'abonnement, un identifiant technique de l'ordinateur,
+  le nom de la boutique et la version du logiciel. Ces informations servent uniquement à gérer l'abonnement.</p>
+
+  <h2>6. Durée de conservation et suppression</h2>
+  <p>Les données en ligne sont remplacées à chaque envoi. Le commerçant peut arrêter l'envoi et retirer les téléphones à tout
+  moment. Pour faire supprimer les données d'une boutique du service CommerTIS, il suffit d'en faire la demande au contact
+  ci-dessous.</p>
+
+  <h2>7. Contact</h2>
+  <p>AGBETOHO Yawovi Godwin, Lomé (Togo). Téléphone et WhatsApp : (+228) 99 17 89 63 / 92 17 84 97.</p>
+
+  <footer>© 2026 CommerTIS · <a href="index.html">Accueil</a></footer>
+</main>
+</body>
+</html>
